@@ -4,11 +4,10 @@
 #include <iostream>
 using namespace std; // Para no tener que poner std::cout, std::string, std::endl, etc.
 
-class reserva
+class Reserva
 {
 private:
     string nombre;
-    int mesa;
     enum lugar{interior, terraza};
     int personas;
     enum hora{trece, catorce, quince};
@@ -17,19 +16,27 @@ private:
     hora hora_reserva;
     menu menu_reserva;
 public:
-    reserva(string nombre, int mesa, int personas, lugar lugar_reserva, hora hora_reserva, menu menu_reserva);
+    Reserva(); // Constructor por defecto
+    Reserva(string nombre, int mesa, int personas, lugar lugar_reserva, hora hora_reserva, menu menu_reserva); // Constructor con parámetros
+    ~Reserva(); // Destructor
+
+// Métodos escribir,mostrar y reserva_generar
+    void escribir_reserva();
+    void mostrar_reserva();
+    void reserva_generar();
+    
+    
+// Getters y setters
     string get_nombre();
-    int get_mesa();
     int get_personas();
     lugar get_lugar();
     hora get_hora();
     menu get_menu();
     void set_nombre(string nombre);
-    void set_mesa(int mesa);
     void set_personas(int personas);
     void set_lugar(lugar lugar_reserva);
     void set_hora(hora hora_reserva);
     void set_menu(menu menu_reserva);
-    void mostrar_reserva();
+    
 };
 #endif

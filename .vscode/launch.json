@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/isaac/Documents/GitHub/pl1Estructurasdedatos",
-      "program": "c:/Users/isaac/Documents/GitHub/pl1Estructurasdedatos/build/Debug/outDebug",
+      "cwd": "c:/Users/isaac/Documents/GitHub/pl1Estructurasdedatos/src",
+      "program": "c:/Users/isaac/Documents/GitHub/pl1Estructurasdedatos/src/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
