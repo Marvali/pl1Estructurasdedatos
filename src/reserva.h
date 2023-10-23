@@ -15,6 +15,7 @@ private:
     lugar lugar_reserva;
     hora hora_reserva;
     menu menu_reserva;
+    friend class Cola;
 public:
     Reserva(); // Constructor por defecto
     Reserva(string nombre, int mesa, int personas, lugar lugar_reserva, hora hora_reserva, menu menu_reserva); // Constructor con parámetros
