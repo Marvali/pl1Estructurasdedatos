@@ -1,10 +1,12 @@
 #include "reserva.h"
 #include "reserva.cpp"
 #include "Cola.cpp"
+#include "mesa.h"
+#include "mesa.cpp"
 int main()
 {
    
-   /*
+   /* comprobación de clase reserva
    Reserva r2;
     r2.reserva_generar();
     r2.mostrar_reserva();
@@ -16,6 +18,8 @@ int main()
     r4.mostrar_reserva();
    
    */ 
+
+  /* comprobación de la cola
     Cola cola;
     Reserva r1;
     r1.reserva_generar();
@@ -28,4 +32,11 @@ int main()
     cola.eliminar();
     cola.mostrar();
     return 0;
+    */ 
+ /* comprobación de la clase mesa
+    Mesa m1;
+    m1.generar_mesa();
+    m1.mostrar_mesa();
+    */
+   
 }

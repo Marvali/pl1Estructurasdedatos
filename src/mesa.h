@@ -17,5 +17,8 @@ class Mesa
     Mesa(); // Constructor por defecto
     Mesa(int numeroMesa, int capacidad, lugar lugar_mesa); // Constructor con parámetros
     ~Mesa(); // Destructor
-
+    void mostrar_mesa();
+    void generar_mesa();
+    
 };
+ #endif
