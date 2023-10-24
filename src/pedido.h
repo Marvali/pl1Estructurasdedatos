@@ -10,9 +10,9 @@ class Pedido{
         int mesa;
         string nombre;
         int personas;
-        enum menu{vegano, sin_gluten, completo}// No entiendo porque ponemos enum
+        enum menu{vegano, sin_gluten, completo};
         menu menu_pedido;
-        enum lugar{interior, terraza}
+        enum lugar{interior, terraza};
         lugar lugar_pedido;
         bool finalizado;
 
@@ -25,6 +25,7 @@ class Pedido{
     void escribir_pedido();
     void mostrar_pedido();
     void reserva_pedido();
+    void generar_pedido();
 
 // Getters y setters
     int get_mesa();
@@ -42,4 +43,5 @@ class Pedido{
     void set_finalizad(bool finalizado);
     
 
-}
+};
+#endif

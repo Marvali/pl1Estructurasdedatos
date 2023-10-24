@@ -33,8 +33,8 @@
     void Mesa::generar_mesa()
     {
         numeroMesa = rand() % 20 + 1;
-        capacidad = rand() % 10 + 1;
-        int lugar = rand() % 2 + 1;
+        capacidad = rand() % 8 + 1;
+        int lugar = rand() % 2;
         if (lugar == 1)
             lugar_mesa = terraza;
         else
