@@ -1,4 +1,4 @@
-#ifndef RESERVA_H
+#ifndef RESERVA_H // si RESERVA_H no está definido. Si no está definido, entonces el código que sigue (hasta el #endif) se incluirá en el programa.
 #define RESERVA_H
 #include <string>
 #include <iostream>

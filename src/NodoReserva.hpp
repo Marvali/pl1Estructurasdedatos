@@ -1,6 +1,6 @@
 
-#ifndef NODO_HPP  // si COLA_HPP no está definido. Si no está definido, entonces el código que sigue (hasta el #endif) se incluirá en el programa.
-#define NODO_HPP // define COLA_HPP. Así que la próxima vez que el preprocesador encuentre #ifndef COLA_HPP, COLA_HPP ya estará definido y el código que sigue no se incluirá en el programa
+#ifndef NODORESERVA_HPP  // si COLA_HPP no está definido. Si no está definido, entonces el código que sigue (hasta el #endif) se incluirá en el programa.
+#define NODORESERVA_HPP // define COLA_HPP. Así que la próxima vez que el preprocesador encuentre #ifndef COLA_HPP, COLA_HPP ya estará definido y el código que sigue no se incluirá en el programa
 #include <iostream> // Incluimos la librería iostream para usar Null
 using namespace std; // Usamos el espacio de nombres std
 #include "reserva.h"
