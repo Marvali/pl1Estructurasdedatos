@@ -24,7 +24,7 @@ class Pedido{
 // Métodos escribir,mostrar y reserva_generar
     void escribir_pedido();
     void mostrar_pedido();
-    void reserva_generar();
+    void reserva_pedido();
 
 // Getters y setters
     int get_mesa();
