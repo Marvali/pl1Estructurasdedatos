@@ -1,3 +1,8 @@
+#ifndef PEDIDO_H
+#define PEDIDO_H
+#include <string>
+#include <iostream>
+using namespace std; // Para no tener que poner std::cout, std::string, std::endl, etc.
 
 class Pedido{
 
@@ -6,9 +11,9 @@ class Pedido{
         string nombre;
         int personas;
         enum menu{vegano, sin_gluten, completo}// No entiendo porque ponemos enum
-        menu menu_pedido
+        menu menu_pedido;
         enum lugar{interior, terraza}
-        lugar lugar_pedido
+        lugar lugar_pedido;
         bool finalizado;
 
     public:

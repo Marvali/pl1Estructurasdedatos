@@ -9,4 +9,4 @@ Pedido::pedido(){
     finalizado = true;
 
 }
-Pedido::pedido(string)
+Pedido::pedido(int m, string n, int p, menu )
