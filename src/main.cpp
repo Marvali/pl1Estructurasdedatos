@@ -3,6 +3,7 @@
 #include "Cola.cpp"
 #include "mesa.h"
 #include "mesa.cpp"
+#include "PilaMesa.cpp"
 int main()
 {
    
@@ -31,12 +32,22 @@ int main()
     cola.mostrar();
     cola.eliminar();
     cola.mostrar();
-    return 0;
+    
     */ 
  /* comprobación de la clase mesa
     Mesa m1;
     m1.generar_mesa();
     m1.mostrar_mesa();
     */
+   /*
+    PilaMesa pila;
+    Mesa m1;
+    m1.generar_mesa();
+    pila.insertar(m1);
+    pila.mostrar();
+    */
    
+return 0;
+
+
 }

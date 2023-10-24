@@ -1,5 +1,5 @@
-#ifndef NODOMEZA_HPP // si COLA_HPP no está definido. Si no está definido, entonces el código que sigue (hasta el #endif) se incluirá en el programa.
-#define NODOMEZA_HPP // define COLA_HPP. Así que la próxima vez que el preprocesador encuentre #ifndef COLA_HPP, COLA_HPP ya estará definido y el código que sigue no se incluirá en el programa
+#ifndef NODOMESA_HPP // si COLA_HPP no está definido. Si no está definido, entonces el código que sigue (hasta el #endif) se incluirá en el programa.
+#define NODOMESA_HPP // define COLA_HPP. Así que la próxima vez que el preprocesador encuentre #ifndef COLA_HPP, COLA_HPP ya estará definido y el código que sigue no se incluirá en el programa
 #include <iostream> // Incluimos la librería iostream para usar Null
 using namespace std; // Usamos el espacio de nombres std
 #include "mesa.h"
@@ -16,6 +16,7 @@ private:
     NodoMesa *siguiente; // Puntero al siguiente nodo
     friend class Pila; // Declaramos la clase Cola como amiga de la clase Nodo 
     friend class Cola;
+    friend class PilaMesa;
     /*cuando decimos que una clase es "amiga" de otra, significa que la clase amiga tiene acceso a los miembros privados y protegidos de la otra clase.
     Esto significa que la clase Pila puede acceder a los miembros privados y protegidos de la clase Nodo. Esto es útil cuando una clase necesita acceder
     a los miembros de otra clase que normalmente estarían fuera de su alcance, pero aún así quieres mantener la encapsulación de los datos.
@@ -37,3 +38,4 @@ NodoMesa::~NodoMesa() // Destructor de la clase Nodo
 {
     
 }
+
