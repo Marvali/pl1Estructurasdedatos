@@ -76,8 +76,8 @@ void Pedido::mostrar_pedido(){
 
 void Pedido::generar_pedido(){
     mesa = rand() % 20 + 1;
-    nombre = "Cliente";
-    personas = rand() % 10 + 1;
+    string nombre[] = {"Juan", "Pedro", "Maria", "Ana", "Luis", "Carlos", "Sara", "Laura", "Pablo", "Javier"};
+    personas = rand() % 8 + 1;
     int valor = rand() % 2 + 1;
     if (valor == 1)
         menu_pedido = vegano;
