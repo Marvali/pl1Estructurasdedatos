@@ -96,7 +96,35 @@ el resto de los datos en cada reserva será aleatorio, TODO EN MEMORIA DINAMICA
          cola->mostrar();
 
          // eliminar la cola Reserva Cola::eliminar()
-         cola->~Cola();
+          cola->~Cola();
 
+         //Generar aleatoriamente la pMesas (al menos ocho serán en terraza, la capacidad será aleatoria).
+         PilaMesa *pila = new PilaMesa();
+         for (int i = 0; i < 8; i++)
+         {
+            Mesa *m = new Mesa();
+            m->generar_mesa();
+            //hacer que las mesas sean en terraza, con set_lugar_mesa
+            m->set_lugar_mesa(1);
+            pila->insertar(*m);
+         }
+
+         //8 mesas en interior
+         for (int i = 0; i < 8; i++)
+         {
+            Mesa *m = new Mesa();
+            m->generar_mesa();
+            //hacer que las mesas sean en interior, con set_lugar_mesa
+            m->set_lugar_mesa(0);
+            pila->insertar(*m);
+         }
+
+
+         // mostrar la pila
+         pila->mostrar();
+
+
+         //borrar la pila
+         pila->~PilaMesa();
 return 0;
 }

@@ -41,3 +41,9 @@
             lugar_mesa = interior;
     
     }
+
+    // Getters y setters
+    void Mesa::set_lugar_mesa(int x)
+    {
+        lugar_mesa = static_cast<lugar>(x);
+    }

@@ -58,9 +58,12 @@ void PilaMesa::mostrar()
     cout << "Listado de todos los elementos de la pilaMesa:\n";
     while(aux) // Mientras que aux no sea NULL
     {
+        cout << "Mesa numero : ";
         cout << aux->valor.numeroMesa << endl; // Mostramos el valor del nodo
+        cout << "Capacidad : ";
         cout << aux->valor.capacidad << endl; // Mostramos el valor del nodo
         //si el valor.lugar_mesa es 0 es interior, si es 1 es terraza
+        cout << "Lugar de la mesa : " ;
         if(aux->valor.lugar_mesa == 0){
             cout << "interior" << endl;
         }else{

@@ -20,5 +20,8 @@ class Mesa
     void mostrar_mesa();
     void generar_mesa();
 
+    // Getters y setters
+    void set_lugar_mesa(int x);
+
 };
  #endif
