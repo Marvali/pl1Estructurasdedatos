@@ -10,16 +10,20 @@ private:
     string nombre;
     enum lugar{interior, terraza};
     int personas;
-    enum hora{trece, catorce, quince};
+    
     enum menu{vegano, sin_gluten, completo};
     lugar lugar_reserva;
+    enum hora{trece, catorce, quince};
     hora hora_reserva;
     menu menu_reserva;
     friend class Cola; // Declaramos la clase Cola como amiga de la clase Reserva
+    
 public:
+    
     Reserva(); // Constructor por defecto
     Reserva(string nombre, int mesa, int personas, lugar lugar_reserva, hora hora_reserva, menu menu_reserva); // Constructor con parámetros
     ~Reserva(); // Destructor
+    
 
 // Métodos escribir,mostrar y reserva_generar
     void escribir_reserva();
@@ -36,7 +40,7 @@ public:
     void set_nombre(string nombre);
     void set_personas(int personas);
     void set_lugar(lugar lugar_reserva);
-    void set_hora(hora hora_reserva);
+    void set_hora(int x);
     void set_menu(menu menu_reserva);
     
 };

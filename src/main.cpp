@@ -52,16 +52,51 @@ int main()
    
 
    
-    Pedido p1;
-    p1.escribir_pedido();
-    p1.mostrar_pedido();
+/* comprobación de la clase pedido
 
     Pedido p2;
     p2.generar_pedido();
     p2.mostrar_pedido();
    
-   
+   */
+
+  /*en la cola se incluirán, al
+menos y en este orden, cuatro reservas para las 13:00, cuatro para las 14:00 y cuatro para las 15:00,
+el resto de los datos en cada reserva será aleatorio, TODO EN MEMORIA DINAMICA
+
+*/
+       Cola *cola = new Cola();
+       for (int i = 0; i < 4; i++)
+       {
+          Reserva *r = new Reserva();
+          r->reserva_generar();
+          //hacer que las reservas sean a las 13:00, con set_hora
+            r->set_hora(13);
+          cola->insetar(*r);
+       }
+         for (int i = 0; i < 4; i++)
+         {
+            Reserva *r = new Reserva();
+            r->reserva_generar();
+            //hacer que las reservas sean a las 14:00, con set_hora
+               r->set_hora(14);
+            cola->insetar(*r);
+         }
+
+         for (int i = 0; i < 4; i++)
+         {
+            Reserva *r = new Reserva();
+            r->reserva_generar();
+            //hacer que las reservas sean a las 15:00, con set_hora
+               r->set_hora(15);
+            cola->insetar(*r);
+         }
+
+         // mostrar la cola
+         cola->mostrar();
+
+         // eliminar la cola Reserva Cola::eliminar()
+         cola->~Cola();
+
 return 0;
-
-
 }

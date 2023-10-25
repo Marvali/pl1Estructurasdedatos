@@ -57,11 +57,28 @@ void Cola::mostrar()
     aux = primero; // El puntero aux apunta al primer nodo de la cola
     cout << "Listado de todos los elementos de la cola:\n";
     while(aux) // Mientras que aux no sea NULL
-    {
-        cout << aux->valor.nombre << " "; // Mostramos el valor del nodo
-        cout << aux->valor.personas << " ";
-        cout << aux->valor.lugar_reserva << " ";
-        cout << aux->valor.hora_reserva << " ";
+    {   cout << "Reserva de : ";
+        cout << aux->valor.nombre << ", "; // Mostramos el valor del nodo
+        cout << "Numero de personas : " ;
+        cout << aux->valor.personas << ", ";
+        cout << "Lugar de la reserva : " ;
+        if (aux->valor.lugar_reserva == 0)
+            cout << "interior" << endl;
+        else
+            cout << "terraza" << endl;
+        if (aux->valor.menu_reserva == 0)
+            cout << "Menu : vegano" << endl;
+        else if (aux->valor.menu_reserva == 1)
+            cout << "Menu : sin gluten" << endl;
+        else
+            cout << "Menu : completo" << endl;
+        if (aux->valor.hora_reserva == 0)
+            cout << "Hora : 13:00" << endl;
+        else if (aux->valor.hora_reserva == 1)
+            cout << "Hora : 14:00" << endl;
+        else
+            cout << "Hora : 15:00" << endl;
+
         aux = aux->siguiente; // El puntero aux apunta al siguiente nodo de la cola
     cout << endl;
     

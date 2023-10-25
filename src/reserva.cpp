@@ -69,7 +69,11 @@ void Reserva::mostrar_reserva()
 
 void Reserva::reserva_generar()
 {
-//generar reservas aleatorias para hacer pruebas
+//generar reservas aleatorias para hacer pruebas 
+/*cuatro reservas para las 13:00, cuatro para las 14:00 y cuatro para las 15:00,
+el resto de los datos en cada reserva será aleatorio*/ 
+
+/**/
     string nombres[] = {"Juan", "Pedro", "Maria", "Ana", "Luis", "Carlos", "Sara", "Laura", "Pablo", "Javier"};
     lugar lugares[] = {interior, terraza};
     hora horas[] = {trece, catorce, quince};
@@ -88,4 +92,24 @@ void Reserva::reserva_generar()
     menu_reserva = menus[aleatorio];
 
 
+}
+
+void Reserva::set_hora(int x)
+{
+   if (x ==13)
+   {
+      hora_reserva = trece;
+   }
+   else if (x == 14)
+   {
+      hora_reserva = catorce;
+   }
+   else if (x == 15)
+   {
+      hora_reserva = quince;
+   }
+   else
+   {
+      cout << "hora no válida" << endl;
+   }
 }
