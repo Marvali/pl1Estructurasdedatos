@@ -81,7 +81,7 @@ el resto de los datos en cada reserva será aleatorio*/
     int aleatorio;
     aleatorio = rand() % 10;
     nombre = nombres[aleatorio];
-    aleatorio = rand() % 9+1;
+    aleatorio = rand() % 8+1;
     personas = aleatorio;
     aleatorio = rand() % 2;
     aleatorio = rand() % 2;

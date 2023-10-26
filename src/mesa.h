@@ -19,9 +19,13 @@ class Mesa
     ~Mesa(); // Destructor
     void mostrar_mesa();
     void generar_mesa();
+    
+
 
     // Getters y setters
     void set_lugar_mesa(int x);
+    void set_capacidad(int capacidad);
+    void set_numeroMesa(int numeroMesa);
 
 };
  #endif

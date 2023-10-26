@@ -32,7 +32,8 @@
     //genera una mesa aleatoria
     void Mesa::generar_mesa()
     {
-        numeroMesa = rand() % 20 + 1;
+        //numero de mesa incremental
+        numeroMesa = rand() % 100 + 1;
         capacidad = rand() % 8 + 1;
         int lugar = rand() % 2;
         if (lugar == 1)
@@ -46,4 +47,13 @@
     void Mesa::set_lugar_mesa(int x)
     {
         lugar_mesa = static_cast<lugar>(x);
+    }
+    void Mesa::set_capacidad(int c)
+    {
+        capacidad = c;
+    }
+
+    void Mesa::set_numeroMesa(int n)
+    {
+        numeroMesa = n;
     }

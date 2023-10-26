@@ -58,13 +58,26 @@ int main()
            cola->~Cola();
            break;
        case 4:
-           //generar aleatoriamente la pila de mesas
-           for (int i = 0; i < 5; i++)
+           //generar aleatoriamente la pila de mesas 10 mesas de 4 personas y 10 mesas de 8 personas
+           for (int i = 0; i < 10; i++)
            {
                Mesa *m = new Mesa();
                m->generar_mesa();
+               //hacer que las mesas sean de 4 personas, con set_personas
+               m->set_capacidad(4);
+               m->set_numeroMesa(i+1);
                pila->insertar(*m);
            }
+             for (int i = 0; i < 10; i++)
+             {
+                Mesa *m = new Mesa();
+                m->generar_mesa();
+                //hacer que las mesas sean de 8 personas, con set_personas
+                m->set_capacidad(8);
+                m->set_numeroMesa(i+10);
+                pila->insertar(*m);
+             }
+           
            break;
        case 5:
            //mostrar en pantalla los datos de la pila de mesas
