@@ -6,8 +6,85 @@
 #include "PilaMesa.cpp"
 #include "Pedido.h"
 #include "cpedido.cpp"
+#include "menu.cpp"
 int main()
 {
+   Cola *cola = new Cola();
+   PilaMesa *pila = new PilaMesa();
+   //inicio menu
+   
+   int opcion = menu();
+   // switch case
+   //hacer hasta que opcion sea 0
+   
+   while (opcion != 0)
+   {
+       switch (opcion)
+       {
+       case 1:
+           //generar aleatoriamente la cola de reservas
+          for (int i = 0; i < 4; i++)
+       {
+          Reserva *r = new Reserva();
+          r->reserva_generar();
+          //hacer que las reservas sean a las 13:00, con set_hora
+            r->set_hora(13);
+          cola->insetar(*r);
+       }
+         for (int i = 0; i < 4; i++)
+         {
+            Reserva *r = new Reserva();
+            r->reserva_generar();
+            //hacer que las reservas sean a las 14:00, con set_hora
+               r->set_hora(14);
+            cola->insetar(*r);
+         }
+
+         for (int i = 0; i < 4; i++)
+         {
+            Reserva *r = new Reserva();
+            r->reserva_generar();
+            //hacer que las reservas sean a las 15:00, con set_hora
+               r->set_hora(15);
+            cola->insetar(*r);
+         }
+           break;
+       case 2:
+           //mostrar en pantalla los datos de la cola de reservas
+           cola->mostrar();
+           break;
+       case 3:
+           //borrar la cola de reservas
+           cola->~Cola();
+           break;
+       case 4:
+           //generar aleatoriamente la pila de mesas
+           for (int i = 0; i < 5; i++)
+           {
+               Mesa *m = new Mesa();
+               m->generar_mesa();
+               pila->insertar(*m);
+           }
+           break;
+       case 5:
+           //mostrar en pantalla los datos de la pila de mesas
+           pila->mostrar();
+           break;
+       case 6:
+           //borrar la pila de mesas
+           pila->~PilaMesa();
+           break;
+       case 7:
+           //simulacion de la gestion 1
+           //coger la
+             break;
+         default:
+               cout << "Opcion incorrecta" << endl;
+               break;
+            }
+            opcion = menu();
+
+        } 
    
    /* comprobación de clase reserva
    Reserva r2;
@@ -60,71 +137,10 @@ int main()
    
    */
 
-  /*en la cola se incluirán, al
-menos y en este orden, cuatro reservas para las 13:00, cuatro para las 14:00 y cuatro para las 15:00,
-el resto de los datos en cada reserva será aleatorio, TODO EN MEMORIA DINAMICA
-
-*/
-       Cola *cola = new Cola();
-       for (int i = 0; i < 4; i++)
-       {
-          Reserva *r = new Reserva();
-          r->reserva_generar();
-          //hacer que las reservas sean a las 13:00, con set_hora
-            r->set_hora(13);
-          cola->insetar(*r);
-       }
-         for (int i = 0; i < 4; i++)
-         {
-            Reserva *r = new Reserva();
-            r->reserva_generar();
-            //hacer que las reservas sean a las 14:00, con set_hora
-               r->set_hora(14);
-            cola->insetar(*r);
-         }
-
-         for (int i = 0; i < 4; i++)
-         {
-            Reserva *r = new Reserva();
-            r->reserva_generar();
-            //hacer que las reservas sean a las 15:00, con set_hora
-               r->set_hora(15);
-            cola->insetar(*r);
-         }
-
-         // mostrar la cola
-         cola->mostrar();
-
-         // eliminar la cola Reserva Cola::eliminar()
-          cola->~Cola();
-
-         //Generar aleatoriamente la pMesas (al menos ocho serán en terraza, la capacidad será aleatoria).
-         PilaMesa *pila = new PilaMesa();
-         for (int i = 0; i < 8; i++)
-         {
-            Mesa *m = new Mesa();
-            m->generar_mesa();
-            //hacer que las mesas sean en terraza, con set_lugar_mesa
-            m->set_lugar_mesa(1);
-            pila->insertar(*m);
-         }
-
-         //8 mesas en interior
-         for (int i = 0; i < 8; i++)
-         {
-            Mesa *m = new Mesa();
-            m->generar_mesa();
-            //hacer que las mesas sean en interior, con set_lugar_mesa
-            m->set_lugar_mesa(0);
-            pila->insertar(*m);
-         }
 
 
-         // mostrar la pila
-         pila->mostrar();
 
+ 
 
-         //borrar la pila
-         pila->~PilaMesa();
 return 0;
 }

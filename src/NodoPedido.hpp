@@ -7,7 +7,7 @@ using namespace std;
 class NodoPedido{
 private:
     Pedido valor;
-    NodoPedido *siguiente
+    NodoPedido *siguiente;
     friend class Cola;
     friend class cpedido;
 public:

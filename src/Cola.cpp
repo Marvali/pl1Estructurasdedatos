@@ -11,7 +11,7 @@ public:
     void insetar(Reserva r); // insetar un elemento en la cola
     Reserva eliminar(); // Elimina un elemento de la cola
     void mostrar(); // Muestra la cola
-
+    Reserva* get_primero();
 private:
     pnodo primero; // Puntero al primer elemento de la cola
     pnodo ultimo; // Puntero al último elemento de la cola
@@ -90,6 +90,10 @@ Cola::~Cola() // Destructor de la clase Cola
     while(primero) // Mientras que primero no sea NULL
         eliminar(); // Eliminamos un nodo de la cola
 
+}
+
+Reserva* Cola::get_primero(){
+    return &primero->valor;
 }
 
 
