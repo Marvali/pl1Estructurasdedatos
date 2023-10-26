@@ -1,0 +1,11 @@
+# ninja log v5
+20	475	7200494508803287	CMakeFiles/pl1Estructurasdedatos.dir/src/hola.cpp.obj	40e2626262d8ee04
+8	484	7200494508910716	CMakeFiles/pl1Estructurasdedatos.dir/src/Cola.cpp.obj	a862174253c6e423
+14	485	7200494508910716	CMakeFiles/pl1Estructurasdedatos.dir/src/menu.cpp.obj	d695b5cb404d7b20
+42	487	7200494508949776	CMakeFiles/pl1Estructurasdedatos.dir/src/mesa.cpp.obj	71825a85cd4420c8
+0	497	7200494509008408	CMakeFiles/pl1Estructurasdedatos.dir/src/cpedido.cpp.obj	2b6f92cb8d2ce8a6
+50	540	7200494509492231	CMakeFiles/pl1Estructurasdedatos.dir/src/reserva.cpp.obj	64f125c853bd209
+27	592	7200494510009845	CMakeFiles/pl1Estructurasdedatos.dir/src/main.cpp.obj	e78b7d0ea17c2559
+10	67	7200496654757755	CMakeFiles/pl1Estructurasdedatos.dir/src/tempCodeRunnerFile.cpp.obj	4d4b4b6786c4bf67
+10	358	7200497101415994	CMakeFiles/pl1Estructurasdedatos.dir/src/PilaMesa.cpp.obj	9651daf2041df241
+4	421	7200497102046338	CMakeFiles/pl1Estructurasdedatos.dir/src/main.cpp.obj	e78b7d0ea17c2559

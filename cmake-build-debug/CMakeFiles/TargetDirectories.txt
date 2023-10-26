@@ -1,0 +1,3 @@
+C:/Users/isaac/Documents/GitHub/pl1Estructurasdedatos/cmake-build-debug/CMakeFiles/pl1Estructurasdedatos.dir
+C:/Users/isaac/Documents/GitHub/pl1Estructurasdedatos/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/isaac/Documents/GitHub/pl1Estructurasdedatos/cmake-build-debug/CMakeFiles/rebuild_cache.dir

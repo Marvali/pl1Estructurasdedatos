@@ -164,7 +164,7 @@ int main()
             
             
 
-        }int opcion = menu(); }
+        }opcion = menu(); }
 
         
    

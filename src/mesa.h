@@ -19,6 +19,7 @@ class Mesa
     ~Mesa(); // Destructor
     void mostrar_mesa();
     void generar_mesa();
+    
    
     
 

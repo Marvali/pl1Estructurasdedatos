@@ -11,7 +11,7 @@
       "cwd": "c:/Users/isaac/Documents/GitHub/pl1Estructurasdedatos/src",
       "program": "c:/Users/isaac/Documents/GitHub/pl1Estructurasdedatos/src/build/Debug/outDebug",
       "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
+      "miDebuggerPath": "C:/msys64/mingw64/bin/gcc.exe",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",

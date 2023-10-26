@@ -2,6 +2,7 @@
 #define PILAMESA_HPP // define PILAMESA_HPP. Así que la próxima vez que el preprocesador encuentre #ifndef PILAMESA_HPP, PILAMESA_HPP ya estará definido y el código que sigue no se incluirá en el programa
 #include "NodoMesa.hpp" // Incluimos la clase Nodo
 #include <iostream> // Incluimos la librería iostream para usar Null
+
 using namespace std; // Usamos el espacio de nombres std
 
 class PilaMesa
