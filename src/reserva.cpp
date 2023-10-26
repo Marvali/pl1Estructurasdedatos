@@ -113,3 +113,9 @@ void Reserva::set_hora(int x)
       cout << "hora no válida" << endl;
    }
 }
+
+// Getters y setters
+int Reserva::get_personas()
+{
+    return personas;
+}

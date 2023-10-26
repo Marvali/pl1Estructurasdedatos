@@ -9,13 +9,17 @@ class PilaMesa
 public:
     PilaMesa(); // Constructor de la clase PilaMesa
     ~PilaMesa(); // Destructor de la clase PilaMesa
-    void insertar(Mesa m); // insetar un elemento en la pila
-    Mesa eliminar(); // Elimina un elemento de la pila
+    void insertar(Mesa *m); // insetar un elemento en la pila
+    Mesa* eliminar(); // Elimina un elemento de la pila
     void mostrar(); // Muestra la pila
-
+    void recorrer_editar(int personasReserva, Reserva lugar); 
+    Mesa* get_ultimo();
 private:
   pnodoMesa ultimo; // Puntero al último elemento de la pila, la cima
 
+//getters y setters
+    
+    
 };
 #endif // fin de la definición de PILAMESA_HPP
 
@@ -25,7 +29,7 @@ PilaMesa::PilaMesa() // Constructor de la clase PilaMesa  Los dos puntos :: indi
     ultimo = NULL; // Inicializamos el puntero ultimo a NULL
 }
 
-void PilaMesa::insertar(Mesa y) // insetar un elemento en la pila
+void PilaMesa::insertar(Mesa *y) // insetar un elemento en la pila
 {
     pnodoMesa nuevo; // Creamos un puntero a un nodo
     // reservamos memoria para el nodo y guardamos la dirección en el puntero nuevo
@@ -33,11 +37,11 @@ void PilaMesa::insertar(Mesa y) // insetar un elemento en la pila
     ultimo = nuevo; // Ahora el último nodo de la pila es el nodo nuevo
 }
 
-Mesa PilaMesa::eliminar()
+Mesa* PilaMesa::eliminar()
 {
     pnodoMesa aux; // Creamos un puntero a un nodo
     pnodoMesa nodo; // Creamos un puntero a un nodo
-    Mesa v; // Creamos una variable de tipo Mesa 
+    Mesa* v; // Creamos una variable de tipo Mesa 
     nodo = ultimo; // El puntero nodo apunta al último nodo de la pila
     if(!ultimo) return v; // Si la pila está vacía, retornamos v
     ultimo = nodo->siguiente; // El último nodo de la pila es el nodo siguiente al que apunta nodo, -> es el operador de acceso a miembros de una estructura,
@@ -45,7 +49,7 @@ Mesa PilaMesa::eliminar()
     // dentro de la estructura nodo, podemos acceder con operador -> a valor y a siguiente
     v = nodo->valor; // Guardamos el valor del nodo en la variable v
     //acceder al valor mesa->numero
-    cout << "eliminando la mesa numero : " << nodo->valor.numeroMesa << endl; // Mostramos el valor extraído
+    cout << "eliminando la mesa numero : " << nodo->valor->numeroMesa << endl; // Mostramos el valor extraído
     
     delete nodo; // Borramos el nodo
     return v; // Retornamos el valor del nodo
@@ -59,12 +63,12 @@ void PilaMesa::mostrar()
     while(aux) // Mientras que aux no sea NULL
     {
         cout << "Mesa numero : ";
-        cout << aux->valor.numeroMesa << endl; // Mostramos el valor del nodo
+        cout << aux->valor->numeroMesa << endl; // Mostramos el valor del nodo
         cout << "Capacidad : ";
-        cout << aux->valor.capacidad << endl; // Mostramos el valor del nodo
+        cout << aux->valor->capacidad << endl; // Mostramos el valor del nodo
         //si el valor.lugar_mesa es 0 es interior, si es 1 es terraza
         cout << "Lugar de la mesa : " ;
-        if(aux->valor.lugar_mesa == 0){
+        if(aux->valor->lugar_mesa == 0){
             cout << "interior" << endl;
         }else{
             cout << "terraza" << endl;
@@ -84,4 +88,8 @@ PilaMesa::~PilaMesa() // Destructor de la clase PilaMesa
         ultimo = nodo->siguiente; // El último nodo de la pila es el nodo siguiente al que apunta nodo
         delete nodo; // Borramos el nodo
     }
+}
+
+Mesa* PilaMesa::get_ultimo(){
+    return ultimo->valor;
 }

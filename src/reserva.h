@@ -29,6 +29,7 @@ public:
     void escribir_reserva();
     void mostrar_reserva();
     void reserva_generar();
+    int get_personas();
     
     
 // Getters y setters

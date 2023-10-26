@@ -19,6 +19,7 @@ class Mesa
     ~Mesa(); // Destructor
     void mostrar_mesa();
     void generar_mesa();
+   
     
 
 
@@ -26,6 +27,8 @@ class Mesa
     void set_lugar_mesa(int x);
     void set_capacidad(int capacidad);
     void set_numeroMesa(int numeroMesa);
+    int get_capacidad();
+    lugar get_lugar_mesa();
 
 };
  #endif

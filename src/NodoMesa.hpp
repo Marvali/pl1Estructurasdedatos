@@ -8,11 +8,11 @@ using namespace std; // Usamos el espacio de nombres std
 class NodoMesa
 {
 public:
-    NodoMesa(Mesa x, NodoMesa *sig = NULL); // Constructor de la clase Nodo  El asterisco (*) indica que sig es un puntero.
+    NodoMesa(Mesa *x, NodoMesa *sig = NULL); // Constructor de la clase Nodo  El asterisco (*) indica que sig es un puntero.
 
     ~NodoMesa(); // Destructor de la clase Nodo
 private:
-    Mesa valor; // Valor del nodo
+    Mesa *valor; // Valor del nodo
     NodoMesa *siguiente; // Puntero al siguiente nodo
     friend class Pila; // Declaramos la clase Cola como amiga de la clase Nodo 
     friend class Cola;
@@ -28,7 +28,7 @@ typedef NodoMesa *pnodoMesa; // Definimos pNodo como un puntero a un objeto de t
 
 #endif // fin de la definición de NODO_HPP
 
-NodoMesa::NodoMesa(Mesa x, NodoMesa *sig) // Constructor de la clase Nodo  El asterisco (*) indica que sig es un puntero.
+NodoMesa::NodoMesa(Mesa *x, NodoMesa *sig) // Constructor de la clase Nodo  El asterisco (*) indica que sig es un puntero.
 {
     valor = x; // El valor del nodo es v
     siguiente = sig; // El siguiente nodo es NULL

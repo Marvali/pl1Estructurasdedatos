@@ -8,8 +8,8 @@ class Cola
 public:
     Cola(); // Constructor de la clase Cola
     ~Cola(); // Destructor de la clase Cola
-    void insetar(Reserva r); // insetar un elemento en la cola
-    Reserva eliminar(); // Elimina un elemento de la cola
+    void insetar(Reserva *r); // insetar un elemento en la cola
+    Reserva* eliminar(); // Elimina un elemento de la cola
     void mostrar(); // Muestra la cola
     Reserva* get_primero();
 private:
@@ -23,7 +23,7 @@ Cola::Cola() // Constructor de la clase Cola  Los dos puntos :: indican que Cola
     primero = NULL; // Inicializamos el puntero primero a NULL
     ultimo = NULL; // Inicializamos el puntero ultimo a NULL
 }
-void Cola::insetar(Reserva y) // insetar un elemento en la cola
+void Cola::insetar(Reserva *y) // insetar un elemento en la cola
 {
     pnodo nuevo; // Creamos un puntero a un nodo
     // reservamos memoria para el nodo y guardamos la dirección en el puntero nuevo
@@ -35,10 +35,10 @@ void Cola::insetar(Reserva y) // insetar un elemento en la cola
 
 }
 
-Reserva Cola::eliminar()
+Reserva* Cola::eliminar()
 {
     pnodo nodo; // Creamos un puntero a un nodo
-    Reserva v; // Creamos una variable de tipo Reserva 
+    Reserva* v; // Creamos una variable de tipo Reserva 
     nodo = primero; // El puntero nodo apunta al primer nodo de la cola
     if(!primero) return v; // Si la cola está vacía, retornamos v
     primero = nodo->siguiente; // El primer nodo de la cola es el nodo siguiente al que apunta nodo, -> es el operador de acceso a miembros de una estructura,
@@ -46,7 +46,7 @@ Reserva Cola::eliminar()
     // dentro de la estructura nodo, podemos acceder con operador -> a valor y a siguiente
     if(!primero) ultimo = NULL; // Si la cola está vacía, el último nodo de la cola es NULL
     v = nodo->valor; // Guardamos el valor del nodo en la variable v
-    cout << "eliminando la reserva de  : " << v.nombre << endl; // Mostramos el valor extraído
+    cout << "eliminando la reserva de  : " << v->nombre << endl; // Mostramos el valor extraído
     delete nodo; // Borramos el nodo
     return v; // Retornamos el valor del nodo
 }
@@ -58,23 +58,23 @@ void Cola::mostrar()
     cout << "Listado de todos los elementos de la cola:\n";
     while(aux) // Mientras que aux no sea NULL
     {   cout << "Reserva de : ";
-        cout << aux->valor.nombre << ", "; // Mostramos el valor del nodo
+        cout << aux->valor->nombre << ", "; // Mostramos el valor del nodo
         cout << "Numero de personas : " ;
-        cout << aux->valor.personas << ", ";
+        cout << aux->valor->personas << ", ";
         cout << "Lugar de la reserva : " ;
-        if (aux->valor.lugar_reserva == 0)
+        if (aux->valor->lugar_reserva == 0)
             cout << "interior" << endl;
         else
             cout << "terraza" << endl;
-        if (aux->valor.menu_reserva == 0)
+        if (aux->valor->menu_reserva == 0)
             cout << "Menu : vegano" << endl;
-        else if (aux->valor.menu_reserva == 1)
+        else if (aux->valor->menu_reserva == 1)
             cout << "Menu : sin gluten" << endl;
         else
             cout << "Menu : completo" << endl;
-        if (aux->valor.hora_reserva == 0)
+        if (aux->valor->hora_reserva == 0)
             cout << "Hora : 13:00" << endl;
-        else if (aux->valor.hora_reserva == 1)
+        else if (aux->valor->hora_reserva == 1)
             cout << "Hora : 14:00" << endl;
         else
             cout << "Hora : 15:00" << endl;
@@ -93,7 +93,7 @@ Cola::~Cola() // Destructor de la clase Cola
 }
 
 Reserva* Cola::get_primero(){
-    return &primero->valor;
+    return primero->valor;
 }
 
 
