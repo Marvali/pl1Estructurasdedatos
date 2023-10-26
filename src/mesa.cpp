@@ -57,3 +57,13 @@
     {
         numeroMesa = n;
     }
+
+    int Mesa::get_capacidad()
+    {
+        return capacidad;
+    }
+
+    Mesa::lugar Mesa::get_lugar_mesa()
+    {
+        return lugar_mesa;
+    }

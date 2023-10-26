@@ -139,6 +139,7 @@ int main()
 
                
             }
+
             //mostramos las dos colas y la pila
             cout << "Cola de reservas" << endl;
             cola->mostrar();
@@ -159,6 +160,8 @@ int main()
             
 
         } opcion = menu();}
+
+        
    
    /* comprobación de clase reserva
    Reserva r2;

@@ -119,3 +119,8 @@ int Reserva::get_personas()
 {
     return personas;
 }
+
+Reserva::lugar Reserva::get_lugar()
+{
+    return lugar_reserva;
+}
