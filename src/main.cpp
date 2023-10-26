@@ -115,11 +115,7 @@ int main()
                }
                //eliminamos y cogemos el primer elemento de la cola de reservas
                r = cola->eliminar();
-               //recorremos la pila de mesas auxiliar, para colocar la pila de mesa en su estado original
-               while(pila_aux!= NULL){
-                  m = pila_aux->eliminar();
-                  pila->insertar(m);
-               }
+               
                //recorremos la pila de mesas
                while (pila->get_ultimo() != NULL)
             {
@@ -141,6 +137,11 @@ int main()
                
                
             }
+            //recorremos la pila de mesas auxiliar, para colocar la pila de mesa en su estado original
+               while(pila_aux!= NULL){
+                  m = pila_aux->eliminar();
+                  pila->insertar(m);
+               }
 
                
             }
