@@ -124,3 +124,8 @@ Reserva::lugar Reserva::get_lugar()
 {
     return lugar_reserva;
 }
+
+string Reserva::get_nombre()
+{
+    return nombre;
+}

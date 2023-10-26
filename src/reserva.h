@@ -32,6 +32,7 @@ public:
     
     
     
+    
 // Getters y setters
     string get_nombre();
     int get_personas();

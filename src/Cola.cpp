@@ -93,10 +93,10 @@ Cola::~Cola() // Destructor de la clase Cola
 }
 
 Reserva* Cola::get_primero(){
-    if (primero != NULL){
+    if (primero != nullptr){
         return primero->valor;
     }
-    else return NULL;
+    else return nullptr;
 }
 
 

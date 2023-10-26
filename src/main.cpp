@@ -107,24 +107,38 @@ int main()
             //recorrer la pila de mesas hasta encontrar una mesa con capacidad suficiente
             //while pila not null
             
-            while (cola->get_primero() !=NULL){
-               //si la pila de mesas esta vacia, meter la reserva en la cola de pendientes
-               if (pila->get_ultimo()==NULL){
-                  cout << "No hay mesas disponibles" << endl;
-                  cPendientes->insetar(r);
-               }
+            while (cola->get_primero() !=nullptr){
+               
                //eliminamos y cogemos el primer elemento de la cola de reservas
                r = cola->eliminar();
                encontrado = false;
                //recorremos la pila de mesas
-               while (pila->get_ultimo() != NULL || encontrado == false)
+               while ((pila->get_ultimo() != nullptr) && (encontrado == false))
             {
                   m = pila->eliminar();
                   //si la mesa tiene capacidad suficiente y esta en el mismo lugar que la reserva, creamos el pedido y la mesa queda borrada
                   if (((r->get_personas() <=4 && m->get_capacidad() ==4) || (r->get_personas() >4 && m->get_capacidad() ==8))&& (r->get_lugar() == m->get_lugar_mesa()))
                   {
+                     cout << "---------------mesa encontrada---------------------" << endl;
+                     cout << "Reserva de : " << r->get_nombre() << endl;
+                     cout << "Numero de personas : " << r->get_personas() << endl;
+                     cout << "Lugar de la reserva : " ;
+                     if (r->get_lugar() == 0)
+                        cout << "interior" << endl;
+                     else
+                        cout << "terraza" << endl;
+                     cout << "mesa utilizada : " ;
+                     cout << "Capacidad : " << m->get_capacidad() << endl;
+                     cout << "Lugar de la mesa : " ;
+                     if (m->get_lugar_mesa() == 0)
+                        cout << "interior" << endl;
+                     else
+                        cout << "terraza" << endl;
                      encontrado = true;
                      cPedidos->insetar(r);
+                     cout << "---------------pedido creado---------------------" << endl;
+                     cout << "PEDIDO DE  : " << r->get_nombre() << endl;
+                     cout << "------------------------------------" << endl;
                   }
                   
                   else
@@ -137,10 +151,19 @@ int main()
                
                
             }
+            //si la pila de mesas esta vacia, meter la reserva en la cola de pendientes
+               if (pila->get_ultimo()==nullptr){
+                  cout << "No hay mesas disponibles" << endl;
+                  cPendientes->insetar(r);
+               }
             //recorremos la pila de mesas auxiliar, para colocar la pila de mesa en su estado original
-               while(pila_aux!= NULL){
-                  m = pila_aux->eliminar();
-                  pila->insertar(m);
+               while(pila_aux!= nullptr){
+                  if (pila_aux->get_ultimo() != nullptr) {
+                     m = pila_aux->eliminar();
+                     pila->insertar(m);
+                  } else {
+                        break;  // Exit the loop if pila_aux is empty
+                  }
                }
 
                
