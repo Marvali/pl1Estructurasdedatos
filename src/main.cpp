@@ -7,6 +7,8 @@
 #include "Pedido.h"
 #include "cpedido.cpp"
 #include "menu.cpp"
+#include <iostream>
+using namespace std;
 int main()
 {
    Cola *cola = new Cola();
@@ -101,7 +103,7 @@ int main()
             //buscar una mesa menos de 4 personas, coger mesa de 4, mas de 4 personas, coger mesa de 8
             //recorrer la pila de mesas hasta encontrar una mesa con capacidad suficiente
             //while pila not null
-           
+            std::cout << "Simulacion de la gestion 1" << std::endl;
             while (cola->get_primero() !=NULL){
                //si la pila de mesas esta vacia, meter la reserva en la cola de pendientes
                if (pila->get_ultimo()==NULL){
@@ -159,7 +161,7 @@ int main()
             
             
 
-        } opcion = menu();}
+        }int opcion = menu(); }
 
         
    
