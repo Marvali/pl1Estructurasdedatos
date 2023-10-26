@@ -1,3 +1,5 @@
+#include <iostream>
+using namespace std;
 #include "reserva.h"
 #include "reserva.cpp"
 #include "Cola.cpp"
@@ -7,10 +9,11 @@
 #include "Pedido.h"
 #include "cpedido.cpp"
 #include "menu.cpp"
-#include <iostream>
+
 
 int main()
 {
+   
    Cola *cola = new Cola();
    PilaMesa *pila = new PilaMesa();
    PilaMesa *pila2 = new PilaMesa();
