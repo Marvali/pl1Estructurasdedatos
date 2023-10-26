@@ -92,5 +92,11 @@ PilaMesa::~PilaMesa() // Destructor de la clase PilaMesa
 }
 
 Mesa* PilaMesa::get_ultimo(){
-    return ultimo->valor;
+
+    if (ultimo != NULL){
+        return ultimo->valor;
+    }
+    else{
+        return NULL;
+    }
 }

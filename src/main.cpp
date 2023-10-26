@@ -115,9 +115,9 @@ int main()
                }
                //eliminamos y cogemos el primer elemento de la cola de reservas
                r = cola->eliminar();
-               
+               encontrado = false;
                //recorremos la pila de mesas
-               while (pila->get_ultimo() != NULL)
+               while (pila->get_ultimo() != NULL || encontrado == false)
             {
                   m = pila->eliminar();
                   //si la mesa tiene capacidad suficiente y esta en el mismo lugar que la reserva, creamos el pedido y la mesa queda borrada
