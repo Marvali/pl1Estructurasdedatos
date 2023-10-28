@@ -32,8 +32,8 @@ int main()
    Cola *cPendientes = new Cola();
    Mesa *m = new Mesa();
    bool encontrado = false;
-   int *cantidadmesas = 0;
-   int *cantidadReservas = 0;
+   int *cantidadmesas = new int(0);
+   int *cantidadReservas = new int(0);
    //inicio menu
    
    int opcion = menu();
@@ -77,16 +77,18 @@ int main()
          cout << "               ++++++++++++++++++++++" << endl;
          cout << "               + RESERVAS GENERADAS +" << endl;
          cout << "               ++++++++++++++++++++++" << endl;
-         cout << "CANTIDAD = " << cantidadReservas << endl;
+         cout << "CANTIDAD = " << *cantidadReservas << endl;
            break;
        case 2:
            //mostrar en pantalla los datos de la cola de reservas
            cola->mostrar();
-           cout << "Cantidad de reservas : " << cantidadReservas << endl;           
+           cout << "Cantidad de reservas : " << *cantidadReservas << endl;           
            break;
        case 3:
            //borrar la cola de reservas
            cola->~Cola();
+         *cantidadReservas = 0;
+         cout << "Cantidad de reservas : " << *cantidadReservas << endl; 
            break;
        case 4:
            //generar aleatoriamente la pila de mesas 10 mesas de 4 personas y 10 mesas de 8 personas
@@ -114,16 +116,18 @@ int main()
                cout << "               +++++++++++++++++++" << endl;
                cout << "               + MESAS GENERADAS +" << endl;
                cout << "               +++++++++++++++++++" << endl;
-               cout << "CANTIDAD = " << cantidadmesas << endl;
+               cout << "CANTIDAD = " << *cantidadmesas << endl;
            break;
        case 5:
            //mostrar en pantalla los datos de la pila de mesas
            pila->mostrar();
-           cout << "Cantidad de mesas : " << cantidadmesas << endl;
+           cout << "Cantidad de mesas : " << *cantidadmesas << endl;
            break;
        case 6:
            //borrar la pila de mesas
            pila->~PilaMesa();
+             *cantidadmesas = 0;
+               cout << "Cantidad de mesas : " << *cantidadmesas << endl;
            break;
        case 7:
              //realizar 1 pedido
@@ -327,6 +331,10 @@ void processReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, Cola* cPendient
             else
                cout << "terraza" << endl;
             encontrado = true;
+
+            //convertir el objeto reserva en un objeto pedido
+
+
             cPedidos->insetar(r);
             cout << "---------------pedido creado---------------------" << endl;
 
@@ -411,9 +419,9 @@ void imprimirReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, Cola* cPendien
    cout << "Cola de pendientes" << endl;
    cPedidos->mostrar();
    cout << "Numero de mesas disponibles" << endl;
-   cout << cantidadmesas << endl;
+   cout << *cantidadmesas << endl;
    cout << "Reservas que quedan por resolver" << endl;
-   cout << cantidadReservas << endl;
+   cout << *cantidadReservas << endl;
 }
 
   
