@@ -45,6 +45,10 @@
     }
 
     // Getters y setters
+    int Mesa::get_numeroMesa()
+    {
+        return numeroMesa;
+    }
     void Mesa::set_lugar_mesa(int x)
     {
         lugar_mesa = static_cast<lugar>(x);

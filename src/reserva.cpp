@@ -153,3 +153,8 @@ Reserva::hora Reserva::get_hora()
 {
     return hora_reserva;
 }
+
+Reserva::menu Reserva::get_menu()
+{
+    return menu_reserva;
+}

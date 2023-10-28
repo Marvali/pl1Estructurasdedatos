@@ -1,47 +1,46 @@
-#ifndef PEDIDO_H
-#define PEDIDO_H
+#ifndef PEDIDOS_H
+#define PEDIDOS_H
 #include <string>
 #include <iostream>
-using namespace std; // Para no tener que poner std::cout, std::string, std::endl, etc.
+#include "Mesa.h"
+#include "Reserva.h"
 
-class Pedido{
+using namespace std;
 
+class Pedido
+{
     private:
-        int mesa;
-        string nombre;
-        int personas;
-        enum menu{vegano, sin_gluten, completo};
-        menu menu_pedido;
-        enum lugar{interior, terraza};
-        lugar lugar_pedido;
-        bool finalizado;
+    int numeroMesa;
+    string nombreCliente;
+    int numeroPersonas;
+    enum menu{vegano, sin_gluten, completo};
+    menu menu_reserva;
+    enum lugar{interior, terraza};
+    lugar lugar_reserva;
+    bool estado;
+    friend class ColaPedido;
 
     public:
-        Pedido();
-        Pedido(int mesa, string nombre, menu menu_pedido, lugar lugar_pedido, bool finalizado);
-        ~Pedido();
-
-// Métodos escribir,mostrar y reserva_generar
-    void escribir_pedido();
-    void mostrar_pedido();
-    void reserva_pedido();
-    void generar_pedido();
-
-// Getters y setters
-    int get_mesa();
-    string get_nombre();
-    int get_personas();
-    menu get_menu();
-    lugar get_lugar();
-    bool get_finalizado();
-
-    void set_mesa(int mesa);
-    void set_nombre(string nombre);
-    void set_personas(int personas);
-    void set_menu(menu menu_reserva);
-    void set_lugar(lugar lugar_reserva);
-    void set_finalizad(bool finalizado);
+    Pedido();
+    Pedido(int numeroMesa, string nombreCliente, int numeroPersonas, menu menu_reserva, lugar lugar_reserva, bool estado);
+    ~Pedido();
     
 
+    Pedido generar_pedido(Mesa *mesa, Reserva *reserva);
+
+    // Getters y setters
+    int get_numeroMesa();
+    string get_nombreCliente();
+    int get_numeroPersonas();
+    menu get_menu();
+    lugar get_lugar();
+    bool get_estado();
+    void set_numeroMesa(int numeroMesa);
+    void set_nombreCliente(string nombreCliente);
+    void set_numeroPersonas(int numeroPersonas);
+    void set_menu(menu menu_reserva);
+    void set_lugar(lugar lugar_reserva);
+    void set_estado(bool estado);
 };
+
 #endif
