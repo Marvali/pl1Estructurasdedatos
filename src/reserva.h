@@ -16,6 +16,7 @@ private:
     enum hora{trece, catorce, quince};
     hora hora_reserva;
     menu menu_reserva;
+    int reservaID;
     friend class Cola; // Declaramos la clase Cola como amiga de la clase Reserva
     
 public:
@@ -44,6 +45,7 @@ public:
     void set_lugar(lugar lugar_reserva);
     void set_hora(int x);
     void set_menu(menu menu_reserva);
-    
+    void set_reservaID(int reservaID);
+    int get_reservaID();
 };
 #endif

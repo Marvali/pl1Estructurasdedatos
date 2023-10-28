@@ -1,29 +1,5 @@
-#ifndef PILAMESA_HPP // si PILAMESA_HPP no está definido. Si no está definido, entonces el código que sigue (hasta el #endif) se incluirá en el programa.
-#define PILAMESA_HPP // define PILAMESA_HPP. Así que la próxima vez que el preprocesador encuentre #ifndef PILAMESA_HPP, PILAMESA_HPP ya estará definido y el código que sigue no se incluirá en el programa
-#include "NodoMesa.hpp" // Incluimos la clase Nodo
-#include <iostream> // Incluimos la librería iostream para usar Null
 
-using namespace std; // Usamos el espacio de nombres std
-
-class PilaMesa
-{
-public:
-    PilaMesa(); // Constructor de la clase PilaMesa
-    ~PilaMesa(); // Destructor de la clase PilaMesa
-    void insertar(Mesa *m); // insetar un elemento en la pila
-    Mesa* eliminar(); // Elimina un elemento de la pila
-    void mostrar(); // Muestra la pila
-    void recorrer_editar(int personasReserva, Reserva lugar); 
-    Mesa* get_ultimo();
-private:
-  pnodoMesa ultimo; // Puntero al último elemento de la pila, la cima
-
-//getters y setters
-    
-    
-};
-#endif // fin de la definición de PILAMESA_HPP
-
+#include "PilaMesa.h" // Incluimos el archivo PilaMesa.h donde se encuentra la declaración de la clase PilaMesa
 
 PilaMesa::PilaMesa() // Constructor de la clase PilaMesa  Los dos puntos :: indican que PilaMesa() es un miembro de la clase PilaMesa.
 {
@@ -62,18 +38,23 @@ void PilaMesa::mostrar()
     aux = ultimo; // El puntero aux apunta al último nodo de la pila
     cout << "Listado de todos los elementos de la pilaMesa:\n";
     while(aux) // Mientras que aux no sea NULL
-    {
-        cout << "Mesa numero : ";
-        cout << aux->valor->numeroMesa << endl; // Mostramos el valor del nodo
-        cout << "Capacidad : ";
-        cout << aux->valor->capacidad << endl; // Mostramos el valor del nodo
-        //si el valor.lugar_mesa es 0 es interior, si es 1 es terraza
-        cout << "Lugar de la mesa : " ;
-        if(aux->valor->lugar_mesa == 0){
-            cout << "interior" << endl;
-        }else{
-            cout << "terraza" << endl;
-        }
+    {   
+        cout << "###################" << endl;
+        //si el numero de la mesa es mayor de 10, se muestran 1 espacios en blanco si es menor solo 1
+        if (aux->valor->numeroMesa > 9)
+            cout << "# Mesa: " << aux->valor->numeroMesa << "        #" << endl;
+        else
+            cout << "# Mesa: " << aux->valor->numeroMesa << "         #" << endl;
+        cout << "# Capacidad: " << aux->valor->capacidad << "    #" << endl;
+        if (aux->valor->lugar_mesa == 0)
+            cout << "# Lugar: " << "interior #" << endl;
+        else
+            cout << "# Lugar: " << "terraza  #" << endl;
+
+        cout << "###################" << endl;
+        cout << "#                 #" << endl;
+        cout << endl;
+
        
         aux = aux->siguiente; // El puntero aux apunta al nodo siguiente
     }
@@ -100,3 +81,4 @@ Mesa* PilaMesa::get_ultimo(){
         return nullptr;
     }
 }
+

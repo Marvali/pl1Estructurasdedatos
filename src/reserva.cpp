@@ -74,11 +74,12 @@ void Reserva::reserva_generar()
 el resto de los datos en cada reserva será aleatorio*/ 
 
 /**/
-    string nombres[] = {"Juan", "Pedro", "Maria", "Ana", "Luis", "Carlos", "Sara", "Laura", "Pablo", "Javier"};
+    string nombres[] = {"Isaac", "Pablo", "Anabel", "Ana", "Luis", "Carlos", "Daniela", "Laura", "Oscar", "Javier", "Miguel", "Raul", "Sergio", "Jorge", "Alvaro", "David", "Daniel", "Paolo", "Jose", "Ricardo","Juan","Pedro"};
     lugar lugares[] = {interior, terraza};
     hora horas[] = {trece, catorce, quince};
     menu menus[] = {vegano, sin_gluten, completo};
     int aleatorio;
+    int reservaID;
     aleatorio = rand() % 10;
     nombre = nombres[aleatorio];
     aleatorio = rand() % 8+1;
@@ -91,9 +92,18 @@ el resto de los datos en cada reserva será aleatorio*/
     aleatorio = rand() % 3;
     menu_reserva = menus[aleatorio];
 
+    //coger el id de la ultima reserva y sumarle 1
+    reservaID = get_reservaID();
+    reservaID++;
+    set_reservaID(reservaID);
+    
+
 
 }
 
+
+
+// Getters y setters
 void Reserva::set_hora(int x)
 {
    if (x ==13)
@@ -113,8 +123,6 @@ void Reserva::set_hora(int x)
       cout << "hora no válida" << endl;
    }
 }
-
-// Getters y setters
 int Reserva::get_personas()
 {
     return personas;
@@ -128,4 +136,15 @@ Reserva::lugar Reserva::get_lugar()
 string Reserva::get_nombre()
 {
     return nombre;
+}
+
+//reserva id set
+void Reserva::set_reservaID(int x)
+{
+    reservaID = x;
+}
+
+int Reserva::get_reservaID()
+{
+    return reservaID;
 }

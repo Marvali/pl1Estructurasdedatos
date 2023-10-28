@@ -1,22 +1,4 @@
-#ifndef COLA_HPP  // si COLA_HPP no está definido. Si no está definido, entonces el código que sigue (hasta el #endif) se incluirá en el programa.
-#define COLA_HPP // define COLA_HPP. Así que la próxima vez que el preprocesador encuentre #ifndef COLA_HPP, COLA_HPP ya estará definido y el código que sigue no se incluirá en el programa
-#include "NodoReserva.hpp" // Incluimos la clase Nodo
-#include "reserva.h"
-
-class Cola
-{
-public:
-    Cola(); // Constructor de la clase Cola
-    ~Cola(); // Destructor de la clase Cola
-    void insetar(Reserva *r); // insetar un elemento en la cola
-    Reserva* eliminar(); // Elimina un elemento de la cola
-    void mostrar(); // Muestra la cola
-    Reserva* get_primero();
-private:
-    pnodo primero; // Puntero al primer elemento de la cola
-    pnodo ultimo; // Puntero al último elemento de la cola
-};
-#endif // fin de la definición de COLA_HPP
+#include "cola.h"
 
 Cola::Cola() // Constructor de la clase Cola  Los dos puntos :: indican que Cola() es un miembro de la clase Cola.
 {
@@ -55,31 +37,49 @@ void Cola::mostrar()
 {
     pnodo aux; // Creamos un puntero a un nodo
     aux = primero; // El puntero aux apunta al primer nodo de la cola
-    cout << "Listado de todos los elementos de la cola:\n";
+    cout << "   +++++++++++++++++++++++++++++++++++++++++++++++" << endl;
+    cout << "   + Listado de todos los elementos de la cola:  +"<< endl;
+    cout << "   +++++++++++++++++++++++++++++++++++++++++++++++" << endl;
     while(aux) // Mientras que aux no sea NULL
-    {   cout << "Reserva de : ";
-        cout << aux->valor->nombre << ", "; // Mostramos el valor del nodo
-        cout << "Numero de personas : " ;
-        cout << aux->valor->personas << ", ";
-        cout << "Lugar de la reserva : " ;
-        if (aux->valor->lugar_reserva == 0)
-            cout << "interior" << endl;
-        else
-            cout << "terraza" << endl;
-        if (aux->valor->menu_reserva == 0)
-            cout << "Menu : vegano" << endl;
-        else if (aux->valor->menu_reserva == 1)
-            cout << "Menu : sin gluten" << endl;
-        else
-            cout << "Menu : completo" << endl;
-        if (aux->valor->hora_reserva == 0)
-            cout << "Hora : 13:00" << endl;
-        else if (aux->valor->hora_reserva == 1)
-            cout << "Hora : 14:00" << endl;
-        else
-            cout << "Hora : 15:00" << endl;
+    
+    {
+        //hacer una tabla con los datos de la reserva
 
+        cout << "###################################" << endl;
+        cout << "#                                 #" << endl;
+
+        cout << "# Nombre de la reserva : ";
+        //imprimir el # dependiendo del tamaño del nombre, coger el tamaño del nombre 
+        //y luego imprimir el numero de # que sea necesario, nombre mas larg menos espacios
+        int tam = aux->valor->nombre.size();
+        cout << aux->valor->nombre; 
+        for (int i = 0; i < 9-tam; i++){
+            cout << " ";
+        }
+        cout << "#" << endl;
+        cout << "# Numero de personas : ";
+        cout << aux->valor->personas <<"          #" << endl;
+        cout << "# Lugar de la reserva : " ;
+        if (aux->valor->lugar_reserva == 0)
+            cout << "interior  #" << endl;
+        else
+            cout << "terraza   #" << endl;
+        if (aux->valor->menu_reserva == 0)
+            cout << "# Menu : vegano                   #" << endl;
+        else if (aux->valor->menu_reserva == 1)
+            cout << "# Menu : sin gluten               #" << endl;
+        else
+            cout << "# Menu : completo                 #" << endl;
+        if (aux->valor->hora_reserva == 0)
+            cout << "# Hora : 13:00                    #" << endl;
+        else if (aux->valor->hora_reserva == 1)
+            cout << "# Hora : 14:00                    #" << endl;
+        else
+            cout << "# Hora : 15:00                    #" << endl;
+        
         aux = aux->siguiente; // El puntero aux apunta al siguiente nodo de la cola
+        cout << "#                                 #" << endl;
+        cout << "###################################" << endl;
     cout << endl;
     
     }

@@ -21,6 +21,7 @@
 
     void Mesa::mostrar_mesa()
     {
+        
         cout << "Mesa " << numeroMesa << endl;
         cout << "Capacidad: " << capacidad << endl;
         if (lugar_mesa == interior)
