@@ -229,7 +229,7 @@ return 0;
 }
 
 
-void processReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos,ColaPedido *colapendientes, int *cantidadReservas, int *cantidadmesas)
+void processReservas(Cola* cola, PilaMesa* pila, Cola* cpendientes,ColaPedido *colaPedidos, int *cantidadReservas, int *cantidadmesas)
 {
    
    Reserva* r;
@@ -272,7 +272,7 @@ void processReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos,ColaPedido *cola
             Pedido *p = new Pedido();
             p->generar_pedido(m, r);
             //meter el pedido en la cola de pedidos
-            colapendientes->insetar(p);
+            colaPedidos->insetar(p);
             cout << "---------------pedido creado---------------------" << endl;
 
             }
@@ -288,7 +288,7 @@ void processReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos,ColaPedido *cola
  //si la pila de mesas esta vacia, meter la reserva en la cola de pendientes
                if (pila->get_ultimo()==nullptr && encontrado == false){
                   cout << "No hay mesas disponibles" << endl;
-                  cola->insetar(r);
+                  cpendientes->insetar(r);
                }
                //recorremos la pila de mesas auxiliar, para colocar la pila de mesa en su estado original
                while(pila_aux!= nullptr){
@@ -368,22 +368,14 @@ void processAllReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido *
             gestionarse las reservas en cPendientes. Al finalizar, se mostrarán en pantalla ambas colas de
             reservas, la pila de mesas y la cola de pedidos.*/
 
-   while ((cola->get_primero() != nullptr || cPedidos->get_primero() != nullptr) && (numero>30))
+   while ((cola->get_primero() != nullptr || cPedidos->get_primero() != nullptr) && (numero!=30))
    {
-      if (numero%2 == 0)
-      {
-         processReservas(cola, pila, cPedidos, colapendientes, cantidadReservas, cantidadmesas);
-         numero++;
-      }else {  
-         if (cPedidos->get_primero() != nullptr)
-         {
-            
-         processReservas(cPedidos, pila, cPedidos, colapendientes, cantidadReservas, cantidadmesas);
-         numero++;
-         }else {
-            numero++;
-         }
-      }
+     if (numero % 3 == 0 && cPedidos->get_primero() != nullptr) {
+      processReservas(cPedidos, pila, cPedidos, colapendientes, cantidadReservas, cantidadmesas);
+}    else if (cola->get_primero() != nullptr) {
+      processReservas(cola, pila, cPedidos, colapendientes, cantidadReservas, cantidadmesas);
+}
+numero++;
 
 
   

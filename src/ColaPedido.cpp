@@ -61,7 +61,10 @@ void ColaPedido::mostrar()
         cout << aux->valor->numeroPersonas;
         cout << "          #" << endl;
         cout << "# Numero de mesa : ";
-        cout << aux->valor->numeroMesa<< "             #"<< endl;
+        if (aux->valor->numeroMesa > 9)
+            cout << "# Mesa: " << aux->valor->numeroMesa << "     #" << endl;
+        else
+            cout << "# Mesa: " << aux->valor->numeroMesa << "      #" << endl;
         cout << "# menu : ";                   
         if (aux->valor->menu_reserva == 0)
             cout << "vegano                   #" << endl;
