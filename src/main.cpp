@@ -21,7 +21,7 @@ using namespace std;
 void processReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido *colapendientes, int *cantidadReservas, int *cantidadmesas);
 void processReservasHora(Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido *colapendientes, int *cantidadReservas, int *cantidadmesas);
 void imprimirReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido *colapendientes, int *cantidadReservas, int *cantidadmesas);
-
+void processAllReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido *colapendientes, int *cantidadReservas, int *cantidadmesas);
 int main()
 
 {
@@ -150,82 +150,14 @@ int main()
          break; 
 
          case 9:
+            
+            //simulacion de todas las reservas
+            processAllReservas(cola, pila, cPedidos, colapendientes, cantidadReservas, cantidadmesas);
+            imprimirReservas(cola, pila, cPedidos, colapendientes, cantidadReservas, cantidadmesas);
+
+
 
           
-            while (cola->get_primero() !=nullptr){
-               
-               //eliminamos y cogemos el primer elemento de la cola de reservas
-               r = cola->eliminar();
-               encontrado = false;
-               //recorremos la pila de mesas
-               while ((pila->get_ultimo() != nullptr) && (encontrado == false))
-            {     
-                  
-                  m = pila->eliminar();
-                  //si la mesa tiene capacidad suficiente y esta en el mismo lugar que la reserva, creamos el pedido y la mesa queda borrada
-                  if (((r->get_personas() <=4 && m->get_capacidad() ==4) || (r->get_personas() >4 && m->get_capacidad() ==8))&& (r->get_lugar() == m->get_lugar_mesa()))
-                  {
-                     cout << "---------------mesa encontrada---------------------" << endl;
-                     cout << "Reserva de : " << r->get_nombre() << endl;
-                     cout << "Numero de personas : " << r->get_personas() << endl;
-                     cout << "Lugar de la reserva : " ;
-                     if (r->get_lugar() == 0)
-                        cout << "interior" << endl;
-                     else
-                        cout << "terraza" << endl;
-                     cout << "mesa utilizada : " ;
-                     cout << "Capacidad : " << m->get_capacidad() << endl;
-                     cout << "Lugar de la mesa : " ;
-                     if (m->get_lugar_mesa() == 0)
-                        cout << "interior" << endl;
-                     else
-                        cout << "terraza" << endl;
-                     encontrado = true;
-                     cPedidos->insetar(r);
-                     cout << "---------------pedido creado---------------------" << endl;
-                     cout << "PEDIDO DE  : " << r->get_nombre() << endl;
-                     cout << "------------------------------------" << endl;
-                  }
-                  
-                  else
-                  {
-                     pila_aux->insertar(m);
-                  }
-
-                  
-               
-               
-               
-            }
-            //si la pila de mesas esta vacia, meter la reserva en la cola de pendientes
-               if (pila->get_ultimo()==nullptr){
-                  cout << "No hay mesas disponibles" << endl;
-                  cPendientes->insetar(r);
-               }
-            //recorremos la pila de mesas auxiliar, para colocar la pila de mesa en su estado original
-               while(pila_aux!= nullptr){
-                  if (pila_aux->get_ultimo() != nullptr) {
-                     m = pila_aux->eliminar();
-                     pila->insertar(m);
-                  } else {
-                        break;  // Exit the loop if pila_aux is empty
-                  }
-               }
-
-               
-            }
-
-            //mostramos las dos colas y la pila
-            cout << "Cola de reservas" << endl;
-            cola->mostrar();
-            cout << "Cola de pedidos" << endl;
-            cPedidos->mostrar();
-            cout << "Cola de pendientes" << endl;
-            cPendientes->mostrar();
-            cout << "Pila de mesas" << endl;
-            pila->mostrar();
-            
-            // si encontrado es true, mover la reserva a cPedidos
          break;
          default:
                cout << "Opcion incorrecta" << endl;
@@ -427,6 +359,31 @@ void imprimirReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido *co
    cout << *cantidadmesas << endl;
    cout << "Reservas que quedan por resolver" << endl;
    cout << *cantidadReservas << endl;
+}
+
+void processAllReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido *colapendientes, int *cantidadReservas, int *cantidadmesas)
+{
+   int numero;
+   /*/*hasta que se hayan gestionado todas las reservas de ambas colas o no puedan
+            gestionarse las reservas en cPendientes. Al finalizar, se mostrarán en pantalla ambas colas de
+            reservas, la pila de mesas y la cola de pedidos.*/
+
+   while (cola->get_primero() != nullptr || cPedidos->get_primero() != nullptr ||  numero>30)
+   {
+      if (numero%2 == 0)
+      {
+         processReservas(cola, pila, cPedidos, colapendientes, cantidadReservas, cantidadmesas);
+         numero++;
+      }else {  
+         processReservas(cPedidos, pila, cPedidos, colapendientes, cantidadReservas, cantidadmesas);
+         numero++;
+      }
+
+
+  
+   
+}
+
 }
 
   
