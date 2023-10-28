@@ -6,6 +6,11 @@ ColaPedido::ColaPedido() // Constructor de la clase Cola
     ultimo = NULL;
 }
 
+ColaPedido::~ColaPedido() // Destructor de la clase Cola
+{
+    while(primero) eliminar();
+}
+
 void ColaPedido::insetar(Pedido *p) // insetar un elemento en la cola
 {
     pnodoPedido nuevo; // Creamos un puntero a un nodo
@@ -96,3 +101,13 @@ void ColaPedido::mostrar()
     }
     cout << endl;
 }
+
+Pedido* ColaPedido::get_primero(){
+    if (primero != nullptr){
+        return primero->valor;
+    }
+    else{
+        return nullptr;
+    }
+}
+

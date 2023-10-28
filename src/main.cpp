@@ -22,15 +22,14 @@ void processReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido *col
 void processReservasHora(Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido *colapendientes, int *cantidadReservas, int *cantidadmesas);
 void imprimirReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido *colapendientes, int *cantidadReservas, int *cantidadmesas);
 void processAllReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido *colapendientes, int *cantidadReservas, int *cantidadmesas);
+
 int main()
 
 {
-   
+   //declaracion de variables
    Cola *cola = new Cola();
    PilaMesa *pila = new PilaMesa();
-   PilaMesa *pila2 = new PilaMesa();
    Reserva *r = new Reserva();
-   PilaMesa *pila_aux = new PilaMesa();
    Cola *cPedidos = new Cola();
    Cola *cPendientes = new Cola();
    Mesa *m = new Mesa();
@@ -44,6 +43,9 @@ int main()
    // switch case
    //hacer hasta que opcion sea 0
 
+   //rand aleatorio
+   srand(time(NULL));
+
    while (opcion != 0)
    {
        switch (opcion)
@@ -53,6 +55,7 @@ int main()
           for (int i = 0; i < 4; i++)
        {
           Reserva *r = new Reserva();
+          
           r->reserva_generar();
           //hacer que las reservas sean a las 13:00, con set_hora
             r->set_hora(13);
@@ -99,6 +102,7 @@ int main()
            
          for (int i = 0; i < 10; i++)
          {
+           
             Mesa *m = new Mesa();
             m->generar_mesa();
             //hacer que las mesas sean de 4 personas, con set_personas
@@ -307,11 +311,11 @@ void processReservas(Cola* cola, PilaMesa* pila, Cola* cpendientes,ColaPedido *c
 
 }
 
-void processReservasHora (Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido *colapendientes, int *cantidadReservas, int *cantidadmesas)
+void processReservasHora (Cola* cola, PilaMesa* pila, Cola* pendientes, ColaPedido *pedidos, int *cantidadReservas, int *cantidadmesas)
 {
    int hora;
    cout << "dime la hora de las reservas que quieres realizar : " << hora << endl;
-   cout << "0: 13:00, 1: 14:00, 2: 15:00" << endl;
+   cout << " introduce 0,1,2 solo.    0: 13:00, 1: 14:00, 2: 15:00" << endl;
    cin >> hora;
    Cola* cola_aux = new Cola();
    Cola* cola_retorno = new Cola();
@@ -324,8 +328,9 @@ void processReservasHora (Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido
       if (r->get_hora() == hora)
       {
          cola_aux->insetar(r);
-         processReservas(cola_aux, pila, cPedidos, colapendientes, cantidadReservas, cantidadmesas);
+         processReservas(cola_aux, pila, pendientes, pedidos, cantidadReservas, cantidadmesas);
       }else {
+         
          cola_retorno->insetar(r);
       }
    }  
@@ -344,7 +349,7 @@ void processReservasHora (Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido
 
 
       
-void imprimirReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido *colapendientes, int *cantidadReservas, int *cantidadmesas)
+void imprimirReservas(Cola* cola, PilaMesa* pila, Cola* pendientes, ColaPedido *pedidos, int *cantidadReservas, int *cantidadmesas)
 {
    
    cout << "Pila de mesas" << endl;
@@ -352,28 +357,28 @@ void imprimirReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido *co
    cout << "Cola de reservas" << endl;
    cola->mostrar();
    cout << "Cola de pedidos" << endl;
-   colapendientes->mostrar();
+   pedidos->mostrar();
    cout << "Cola de pendientes" << endl;
-   cPedidos->mostrar();
+   pendientes->mostrar();
    cout << "Numero de mesas disponibles" << endl;
    cout << *cantidadmesas << endl;
    cout << "Reservas que quedan por resolver" << endl;
    cout << *cantidadReservas << endl;
 }
 
-void processAllReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido *colapendientes, int *cantidadReservas, int *cantidadmesas)
+void processAllReservas(Cola* cola, PilaMesa* pila, Cola* pendientes, ColaPedido *colapedidos, int *cantidadReservas, int *cantidadmesas)
 {
    int numero=0;
    /*/*hasta que se hayan gestionado todas las reservas de ambas colas o no puedan
             gestionarse las reservas en cPendientes. Al finalizar, se mostrarán en pantalla ambas colas de
             reservas, la pila de mesas y la cola de pedidos.*/
 
-   while ((cola->get_primero() != nullptr || cPedidos->get_primero() != nullptr) && (numero!=30))
+   while ((cola->get_primero() != nullptr || pendientes->get_primero() != nullptr) && (numero!=30))
    {
-     if (numero % 3 == 0 && cPedidos->get_primero() != nullptr) {
-      processReservas(cPedidos, pila, cPedidos, colapendientes, cantidadReservas, cantidadmesas);
+     if (numero % 3 == 0 && pendientes->get_primero() != nullptr) {
+      processReservas(pendientes, pila, pendientes, colapedidos, cantidadReservas, cantidadmesas);
 }    else if (cola->get_primero() != nullptr) {
-      processReservas(cola, pila, cPedidos, colapendientes, cantidadReservas, cantidadmesas);
+      processReservas(cola, pila, pendientes, colapedidos, cantidadReservas, cantidadmesas);
 }
 numero++;
 
