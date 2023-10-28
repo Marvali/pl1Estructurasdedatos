@@ -17,12 +17,15 @@ class Pedido
     menu menu_reserva;
     enum lugar{interior, terraza};
     lugar lugar_reserva;
+    enum hora{trece, catorce, quince};
+    hora hora_reserva;
     bool estado;
+
     friend class ColaPedido;
 
     public:
     Pedido();
-    Pedido(int numeroMesa, string nombreCliente, int numeroPersonas, menu menu_reserva, lugar lugar_reserva, bool estado);
+    Pedido(int numeroMesa, string nombreCliente, int numeroPersonas, menu menu_reserva, lugar lugar_reserva, bool estado, hora hora_reserva);
     ~Pedido();
     
 

@@ -69,6 +69,14 @@ void ColaPedido::mostrar()
             cout << "sin gluten               #" << endl;
         else
             cout << "completo                 #" << endl;
+
+        cout << "# hora : ";
+        if (aux->valor->hora_reserva == 0)
+            cout << "13:00                    #" << endl;
+        else if (aux->valor->hora_reserva == 1)
+            cout << "14:00                    #" << endl;
+        else
+            cout << "15:00                    #" << endl;
         
         //estado del pedido
         if (aux->valor->estado == 0)
