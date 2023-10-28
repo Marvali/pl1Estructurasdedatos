@@ -169,61 +169,29 @@ int main()
             
             
 
-        }opcion = menu(); }
+        }opcion = menu();
+        
+
+      
+
+         }
+
+      //fin menu
+      //borrar las estructuras de datos
+      delete cola;
+      delete pila;
+      delete r;
+      delete cPedidos;
+      delete cPendientes;
+      delete m;
+      delete cantidadmesas;
+      delete cantidadReservas;
+      delete colapendientes;
+      //liberar toda la memoria
 
         
    
-   /* comprobación de clase reserva
-   Reserva r2;
-    r2.reserva_generar();
-    r2.mostrar_reserva();
-    Reserva r3;
-    r3.reserva_generar();
-    r3.mostrar_reserva();
-    Reserva r4;
-    r4.reserva_generar();
-    r4.mostrar_reserva();
    
-   */ 
-
-  /* comprobación de la cola
-    Cola cola;
-    Reserva r1;
-    r1.reserva_generar();
-    cola.insetar(r1);
-    cola.mostrar();
-    Reserva r2;
-    r2.reserva_generar();
-    cola.insetar(r2);
-    cola.mostrar();
-    cola.eliminar();
-    cola.mostrar();
-    
-    */ 
- /* comprobación de la clase mesa
-    Mesa m1;
-    m1.generar_mesa();
-    m1.mostrar_mesa();
-    */
-
-   /* comprobación de la pila de mesas
-    PilaMesa pila;
-    Mesa m1;
-    m1.generar_mesa();
-    pila.insertar(m1);
-    pila.mostrar();
-    */
-   
-
-   
-/* comprobación de la clase pedido
-
-    Pedido p2;
-    p2.generar_pedido();
-    p2.mostrar_pedido();
-   
-   */
-
 
 
 
@@ -315,8 +283,19 @@ void processReservasHora (Cola* cola, PilaMesa* pila, Cola* pendientes, ColaPedi
 {
    int hora;
    cout << "dime la hora de las reservas que quieres realizar : " << hora << endl;
-   cout << " introduce 0,1,2 solo.    0: 13:00, 1: 14:00, 2: 15:00" << endl;
+   cout << "introduce 0 para las 13:00, 1 para las 14:00 y 2 para las 15:00" << endl;
+   // si introduce un numero que no es 0,1 o 2, se vuelve a pedir el numero
    cin >> hora;
+   
+   while (hora != 0 && hora != 1 && hora != 2)
+   {
+      cout << "dime la hora de las reservas que quieres realizar : " << hora << endl;
+      cout << "introduce 0 para las 13:00, 1 para las 14:00 y 2 para las 15:00" << endl;
+      cin >> hora;
+   }
+
+   
+   
    Cola* cola_aux = new Cola();
    Cola* cola_retorno = new Cola();
    Reserva* r;
