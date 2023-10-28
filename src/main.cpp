@@ -363,20 +363,26 @@ void imprimirReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido *co
 
 void processAllReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, ColaPedido *colapendientes, int *cantidadReservas, int *cantidadmesas)
 {
-   int numero;
+   int numero=0;
    /*/*hasta que se hayan gestionado todas las reservas de ambas colas o no puedan
             gestionarse las reservas en cPendientes. Al finalizar, se mostrarán en pantalla ambas colas de
             reservas, la pila de mesas y la cola de pedidos.*/
 
-   while (cola->get_primero() != nullptr || cPedidos->get_primero() != nullptr ||  numero>30)
+   while ((cola->get_primero() != nullptr || cPedidos->get_primero() != nullptr) && (numero>30))
    {
       if (numero%2 == 0)
       {
          processReservas(cola, pila, cPedidos, colapendientes, cantidadReservas, cantidadmesas);
          numero++;
       }else {  
+         if (cPedidos->get_primero() != nullptr)
+         {
+            
          processReservas(cPedidos, pila, cPedidos, colapendientes, cantidadReservas, cantidadmesas);
          numero++;
+         }else {
+            numero++;
+         }
       }
 
 
