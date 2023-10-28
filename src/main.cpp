@@ -16,7 +16,7 @@ using namespace std;
 #include "menu.cpp"
 
 void processReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, Cola* cPendientes, int cantidadReservas, int cantidadmesas);
-
+void processReservasHora(Cola* cola, PilaMesa* pila, Cola* cPedidos, Cola* cPendientes, int cantidadReservas, int cantidadmesas);
 
 
 int main()
@@ -131,8 +131,8 @@ int main()
 
          case 8:
          
-            //simulacion de todas las reservas de la cola
-            processReservas(cola, pila, cPedidos, cPendientes, cantidadReservas, cantidadmesas);
+            //simulacion de todas por horas
+            processReservasHora(cola, pila, cPedidos, cPendientes, cantidadReservas, cantidadmesas);
             
            
 
@@ -371,3 +371,46 @@ void processReservas(Cola* cola, PilaMesa* pila, Cola* cPedidos, Cola* cPendient
                   cout << "La cola de cPendientes esta vacia!" << endl;
 
 }
+
+void processReservasHora (Cola* cola, PilaMesa* pila, Cola* cPedidos, Cola* cPendientes, int cantidadReservas, int cantidadmesas)
+{
+   int hora;
+   cout << "dime la hora de las reservas que quieres realizar : " << hora << endl;
+   cout << "0: 13:00, 1: 14:00, 2: 15:00" << endl;
+   cin >> hora;
+   Cola* cola_aux = new Cola();
+   Cola* cola_retorno = new Cola();
+   Reserva* r;
+   //recorrer la cola de reservas y meter las reservas de la hora que se ha introducido en la cola auxiliar, llamando a la funcion processReservas
+   
+   while (cola->get_primero() != nullptr)
+   {
+      Reserva* r = cola->eliminar();
+      if (r->get_hora() == hora)
+      {
+         cola_aux->insetar(r);
+         processReservas(cola_aux, pila, cPedidos, cPendientes, cantidadReservas, cantidadmesas);
+      }else {
+         cola_retorno->insetar(r);
+      }
+   }  
+
+   //recorrer la cola retorno y meter las reservas en la cola de reservas
+   while (cola_retorno->get_primero() != nullptr)
+   {
+      Reserva* r = cola_retorno->eliminar();
+      cola->insetar(r);
+   }
+
+   cout << "Cola de reservas" << endl;
+   cola->mostrar();
+   cout << "Cola de pedidos" << endl;
+   cPedidos->mostrar();
+   cout << "Cola de pendientes" << endl;
+   cPendientes->mostrar();
+   
+}
+      
+      
+
+  

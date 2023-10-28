@@ -96,7 +96,7 @@ el resto de los datos en cada reserva será aleatorio*/
     reservaID = get_reservaID();
     reservaID++;
     set_reservaID(reservaID);
-    
+
 
 
 }
@@ -147,4 +147,9 @@ void Reserva::set_reservaID(int x)
 int Reserva::get_reservaID()
 {
     return reservaID;
+}
+
+Reserva::hora Reserva::get_hora()
+{
+    return hora_reserva;
 }
