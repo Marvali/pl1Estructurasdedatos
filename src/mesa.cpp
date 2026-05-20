@@ -52,7 +52,7 @@
     void Mesa::set_lugar_mesa(int x)
     {
         lugar_mesa = static_cast<lugar>(x);
-    }
+    }ºº
     void Mesa::set_capacidad(int c)
     {
         capacidad = c;

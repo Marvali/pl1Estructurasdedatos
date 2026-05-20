@@ -61,6 +61,9 @@ void ColaPedido::mostrar()
         for (int i = 0; i < 11-tam; i++){
             cout << " ";
         }
+        //set wd = 11 idea
+
+        
         cout << "#" << endl;
         cout << "# Numero de personas : ";
         cout << aux->valor->numeroPersonas;

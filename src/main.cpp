@@ -28,6 +28,7 @@ int main()
 {
    //declaracion de variables
    Cola *cola = new Cola();
+   Cola cola_aux;
    PilaMesa *pila = new PilaMesa();
    Reserva *r = new Reserva();
    Cola *cPedidos = new Cola();
